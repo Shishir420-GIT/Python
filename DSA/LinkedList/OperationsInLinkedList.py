@@ -78,14 +78,41 @@ def deleteAtIndex(head, index):
     if index == 0:
         head = head.nextData
         return head
+    if head is None:
+        return head
     tail = head
     indexValue = 0
     while tail.nextData is not None and indexValue < index -1:
-        print(indexValue,index,index-1, indexValue < index -1)
         tail = tail.nextData
         indexValue += 1
+
     if tail.nextData is None:
         print("Index out of range")
         return head
     tail.nextData = tail.nextData.nextData
+    return head
+
+def deleteAtIndexRecursive(head, index):
+    if head is None:
+        print("Index out of range")
+        return head
+    if index == 0:
+        head = head.nextData
+        return head
+    head.nextData = deleteAtIndexRecursive(head.nextData, index-1)
+    return head
+
+def deleteByValue(head, value):
+    if head is None:
+        print("Empty Linked List")
+        return head
+    if head.data == value:
+        head = head.nextData
+        return head
+    tail = head
+    while tail.nextData is not None:
+        if tail.nextData.data == value:
+            tail.nextData = tail.nextData.nextData
+            break
+        tail = tail.nextData
     return head
