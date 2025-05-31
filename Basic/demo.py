@@ -5,7 +5,10 @@ data = {
   "year": 1964,
   "colors": ["red", "white", "blue"]
 }
-#print(data)
+c = 10 + 20
+print(_)
 pprint.pprint(data)
+
+
 
 
